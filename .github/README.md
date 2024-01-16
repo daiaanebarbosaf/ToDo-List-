@@ -4,8 +4,7 @@
 
 <p align="center"> É uma página Web para criação e controle de tarefas.</p>
 
-!["Página home"](home.jpg)<br>
-!["Página sem taferas"](p2.jpg)
+!["Página home"](home.jpg)
 
 <p align="center">
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
