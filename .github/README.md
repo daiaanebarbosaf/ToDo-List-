@@ -5,7 +5,7 @@
 <p align="center"> É uma página Web para criação e controle de tarefas.</p>
 
 <p align="center">
-  <img alt="Imagem da Home com tarefas" src="./home.JPG" width="50%">
+  <img alt="Imagem da Home com tarefas" src="./home-tasks.png" width="90%">
 </p>
 
 <p align="center">
