@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
+import { TbCirclePlus } from "react-icons/tb";
 
 import '../../styles/global.css';
 import styles from'./Home.module.css';
@@ -16,8 +16,11 @@ export function Home() {
         >
         </textarea>
 
-        <button type="sumit">
+        <button 
+          type="sumit"
+        >
           Criar
+          <TbCirclePlus />
         </button>
       </form>
     </>
