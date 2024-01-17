@@ -10,7 +10,7 @@
     width: 80%;
     height: 3rem;
 
-    padding: 0.5rem;
+    padding: 0.8rem;
     margin-top: -1.5rem;
 
     color: var(--gray-100);
@@ -20,4 +20,21 @@
     border-radius: 10px;
 
     resize: none;
+
+}
+
+.taskForm button {
+    height: 3rem;
+
+    padding: 1rem 1.5rem;
+    margin-top: -1.5rem;
+
+    border-radius: 8px;
+    border: 0;
+
+    background: var(--blue-dark);
+    color: var(--gray-100);
+    font-weight: bold;
+
+    cursor: pointer;
 }
