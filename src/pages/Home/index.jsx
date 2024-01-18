@@ -9,20 +9,21 @@ export function Home() {
   return (
     <>
       <Header/>
-    
-      <form className={styles.taskForm}>
-        <textarea 
-          placeholder="Adicione uma nova tarefa"
-        >
-        </textarea>
+      <main>
+        <form className={styles.taskForm}>
+          <textarea 
+            placeholder="Adicione uma nova tarefa"
+          >
+          </textarea>
 
-        <button 
-          type="sumit"
-        >
-          Criar
-          <TbCirclePlus />
-        </button>
-      </form>
+          <button 
+            type="sumit"
+          >
+            Criar
+            <TbCirclePlus />
+          </button>
+        </form>
+      </main>
     </>
   )
 }
