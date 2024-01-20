@@ -13,7 +13,7 @@ export function ItemTasks(){
                         <GoCircle className={styles.goCircle} size={20}/>
                     </button>
                     
-                    <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
+                    <p>Organização semanal</p>
                 </header>
 
                 <button title="Deletar tarefa">
@@ -21,8 +21,7 @@ export function ItemTasks(){
                 </button>
             </div>
 
-            <span>Time</span>
-            
+            <span>20/01/2024 (Sábado) às 10h30</span>
         </div>
     )
 }
