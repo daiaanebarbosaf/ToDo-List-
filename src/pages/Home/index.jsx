@@ -1,4 +1,6 @@
 import { Header } from "../../components/Header";
+import { ItemTasks } from "../../components/ItemTasks";
+
 import { TbCirclePlus } from "react-icons/tb";
 
 import '../../styles/global.css';
@@ -36,6 +38,11 @@ export function Home() {
                 <span>2 de 5</span>
               </div>
           </div>
+        </section>
+        <div className={styles.line}></div>
+
+        <section>
+          <ItemTasks />
         </section>
       </main>
     </div>
