@@ -3,6 +3,8 @@ import { ItemTasks } from "../../components/ItemTasks";
 
 import { TbCirclePlus } from "react-icons/tb";
 
+import clipBoard from '../../assets/clipboard.svg';
+
 import '../../styles/global.css';
 import styles from'./Home.module.css';
 
@@ -41,8 +43,13 @@ export function Home() {
         </section>
         <div className={styles.line}></div>
 
-        <section>
+        <section className={styles.sectionItemTasks}>
           <ItemTasks />
+          <div className={styles.sectionEmpty}>
+            <img src={clipBoard} alt="Icone de uma prancheta" />
+            <p>Você ainda não tem tarefas cadastradas</p>
+            <span>Crie tarefas e organize seus itens a fazer</span>
+          </div>
         </section>
       </main>
     </div>
