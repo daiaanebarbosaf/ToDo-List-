@@ -8,6 +8,21 @@ import clipBoard from '../../assets/clipboard.svg';
 import '../../styles/global.css';
 import styles from'./Home.module.css';
 
+const tasks = [
+  {
+    id: 1,
+    description: 'Duolingo + Lumosity',
+    publishedAt: new Date('2024-01-22 07:51:00'),
+
+  },
+
+  {
+    id: 2,
+    description: 'Leitura',
+    publishedAt: new Date('2024-01-22 07:52:00'),
+  }
+];
+
 export function Home() {
 
   return (
@@ -44,7 +59,16 @@ export function Home() {
         <div className={styles.line}></div>
 
         <section className={styles.sectionItemTasks}>
-          <ItemTasks />
+          {
+              tasks.map(task => {
+                return (
+                  <ItemTasks 
+                    description={task.description}
+                    publishedAt={task.publishedAt}
+                  />
+                )
+              })
+            }
           <div className={styles.sectionEmpty}>
             <img src={clipBoard} alt="Icone de uma prancheta" />
             <p>Você ainda não tem tarefas cadastradas</p>
