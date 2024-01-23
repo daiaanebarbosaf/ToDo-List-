@@ -4,7 +4,14 @@ import { GoCircle } from "react-icons/go";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
+import { format } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+
 export function ItemTasks({ description, publishedAt }){
+
+    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'de' yyyy '('EEEE')' 'às' HH:mm'h'", {
+        locale: ptBR,
+    });
     
     return (
         <div className={styles.task}>
@@ -22,7 +29,12 @@ export function ItemTasks({ description, publishedAt }){
                 </button>
             </div>
 
-            <time title="22 de Janeiro às 07:51h">{publishedAt.toString()}</time>
+            <time 
+                title={publishedDateFormatted}
+                dateTime={publishedAt.toISOString()}
+            >
+                {publishedDateFormatted}
+            </time>
         </div>
     )
 }
