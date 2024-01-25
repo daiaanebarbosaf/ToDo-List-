@@ -1,4 +1,6 @@
-import { Header } from "../../components/Header";
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+
 import { ItemTasks } from "../../components/ItemTasks";
 
 import { TbCirclePlus } from "react-icons/tb";
@@ -10,17 +12,19 @@ import styles from'./Home.module.css';
 import { useState } from "react";
 
 
-export function Task({description, publishedAt}) {
+export function Task({ description, publishedAt }) {
 
   const [ tasks, setTasks ] = useState([
     {
-      description: 'Oi',
-      publishedAt: new Date('2024-01-22 07:51:00')
+      id: 1,
+      description: 'Duolingo + Lumosity',
+      publishedAt: new Date("1995-12-17T03:24:00"),
+
     }
   ]);
 
   const [ newTaskText, setNewTaskText] = useState('');
-  
+
 
   function handleCreateNewTask(){
     event.preventDefault();
@@ -30,13 +34,24 @@ export function Task({description, publishedAt}) {
     
   }  
 
+  function handleNewTaskChange() {
+    event.target.setCustomValidity('');
+    setNewTaskText(event.target.value);
+  }
+  
   console.log(tasks);
   return (
     <div className={styles.container}>
       <main className={styles.wrapper}>
-          <form onSubmit={handleCreateNewTask} className={styles.taskForm}>
+          <form 
+            onSubmit={handleCreateNewTask} 
+            className={styles.taskForm}
+          >
             <textarea 
+              value={newTaskText}
+              onChange={handleNewTaskChange}
               placeholder="Adicione uma nova tarefa"
+              required
             >
             </textarea>
 
@@ -74,6 +89,7 @@ export function Task({description, publishedAt}) {
                 )
               })
             }
+            
           <div className={styles.sectionEmpty}>
             <img src={clipBoard} alt="Icone de uma prancheta" />
             <p>Você ainda não tem tarefas cadastradas</p>
