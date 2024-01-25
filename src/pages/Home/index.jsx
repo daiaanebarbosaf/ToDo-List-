@@ -11,9 +11,9 @@ const tasks = [
     id: 2,
     description: 'Vamos que Vamos',
     publishedAt: new Date('2024-01-22 07:51:00')
-  }
+  },
+  
 ]
-
 
 export function Home() {
 
