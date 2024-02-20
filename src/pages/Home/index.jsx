@@ -1,38 +1,49 @@
-import { Header } from "../../components/Header";
-import { Task } from "../../components/Task";
-
-
 import '../../styles/global.css';
 import styles from'./Home.module.css';
 import { useState } from "react";
 
-const tasks = [
-  {
-    id: 2,
-    description: 'Vamos que Vamos',
-    publishedAt: new Date('2024-01-22 07:51:00')
-  },
-  
-]
+
+import { Header } from '../../components/Header';
+import { Todo } from '../../components/Todo';
+import { Form } from '../../components/Form';
+
 
 export function Home() {
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      text:"Duolingo",
+      isCompleted: false,
+    },
+    {
+      id: 2,
+      text:"Dançar",
+      isCompleted: false,
+    },
+  ]);
 
   return (
     <div className={styles.container}>
-      <Header/>
+      <Header />
+
       <main className={styles.wrapper}>
-        {
-          tasks.map(task => {
-                  return (
-                    <Task
-                      key={task.id}
-                      description={task.description}
-                      publishedAt={task.publishedAt}
-                    />
-                  )
-                })
-              }
+        <Form />
+
+        <div className={styles.line}></div>
+
+        <div className={styles.listTasks}>
+          {
+            todos.map((todo) =>(
+              <Todo
+                todo={todo}
+              />
+            ))
+          }
+        </div>
+
       </main>
+      
+      
     </div>
   )
 }
