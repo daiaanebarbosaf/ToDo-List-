@@ -33,7 +33,6 @@ export function Todo({todo}){
                 
               </button>
               <div className={styles.content}>
-                <p>{todo.id}</p>
                 <p>{todo.text}</p>
               </div>
           </header>
