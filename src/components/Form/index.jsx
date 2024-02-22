@@ -4,19 +4,40 @@ import { Input } from '../../components/Input';
 
 import { TbCirclePlus } from "react-icons/tb";
 
-export function Form(){
+import { useState } from "react";
+
+export function Form({onAddTask, ...rest}){
+    const [newTaskText, setNewTaskText] = useState("");
+
+    function handleCreateNewTask(){
+        
+        event.preventDefault();
+
+        onAddTask(newTaskText);
+        setNewTaskText('');
+    }
+
+    function handleNewTaskChange() {
+        event.target.setCustomValidity('');
+        setNewTaskText(event.target.value);
+    }
+
+    function handleNewTaskInvalid(){
+        event.target.setCustomValidity('Este campo é obrigatório');
+    }
+
     return(
         <div>
         <form 
-          //onSubmit={handleCreateNewTask}
-          className={styles.taskForm}
+            onSubmit={handleCreateNewTask}
+            className={styles.taskForm}
         >
           <Input 
               name="task"
-              //value={newTaskText}
+              value={newTaskText}
               placeholder="Adicione uma nova tarefa"
-              //onChange={handleNewTaskChange}
-              //onInvalid={handleNewTaskInvalid}
+              onChange={handleNewTaskChange}
+              onInvalid={handleNewTaskInvalid}
               required
           />
           <button
