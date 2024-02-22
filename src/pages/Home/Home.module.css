@@ -22,6 +22,10 @@
 
 }
 
+.listTasks {
+    width: 100%;
+}
+
 .taskForm {
     width: 100%;
     display: flex;
