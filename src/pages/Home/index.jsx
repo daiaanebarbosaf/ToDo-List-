@@ -9,7 +9,7 @@ import { Form } from '../../components/Form';
 
 
 export function Home() {
-  const [todos, setTodos] = useState([
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       text:"Duolingo",
@@ -22,6 +22,19 @@ export function Home() {
     },
   ]);
 
+  function onAddTask(text){
+    const newTasks = [
+      ...tasks,
+      {
+        id:Math.floor(Math.random() * 10000),
+        text,
+        isCompleted: false,
+      },
+    ];
+
+    setTasks(newTasks);
+  }
+
   return (
     <div className={styles.container}>
       <Header />
@@ -33,9 +46,11 @@ export function Home() {
 
         <div className={styles.listTasks}>
           {
-            todos.map((todo) =>(
+            tasks.map((task) =>(
               <Todo
-                todo={todo}
+                key={task.id}
+                task={task}
+                onAddTask={onAddTask}
               />
             ))
           }
