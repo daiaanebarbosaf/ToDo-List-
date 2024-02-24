@@ -22,25 +22,31 @@ export function Home() {
     },
   ]);
 
-  function onAddTask(text){
+  function addTask(text){
     const newTasks = [
       ...tasks,
       {
-        id:Math.floor(Math.random() * 10000),
+        id: Math.floor(Math.random() * 10000),
         text,
         isCompleted: false,
       },
     ];
 
-    setTasks(newTasks);
+    console.log(text)
+  
+   setTasks(newTasks);
   }
+
+ 
 
   return (
     <div className={styles.container}>
       <Header />
 
       <main className={styles.wrapper}>
-        <Form />
+        <Form 
+          addTask={addTask}
+        />
 
         <div className={styles.line}></div>
 
@@ -50,7 +56,6 @@ export function Home() {
               <Todo
                 key={task.id}
                 task={task}
-                onAddTask={onAddTask}
               />
             ))
           }
