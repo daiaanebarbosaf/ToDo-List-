@@ -38,8 +38,7 @@ export function Form({addTask}){
               onInvalid={handleNewTaskInvalid}
               required
           />
-          <button
-              //onClick={handleCountingNewTask} 
+          <button 
               type="sumit"
           >
               Criar
