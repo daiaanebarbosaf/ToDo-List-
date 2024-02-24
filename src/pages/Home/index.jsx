@@ -49,9 +49,12 @@ export function Home() {
 
   function completeTask(id, isCompleted){
     const newTasks = [...tasks];
-    newTasks.map((task) => task.id === id ? task.isCompleted = !isCompleted : task)
+      newTasks.map((task) => 
+        task.id === id ? (task.isCompleted = !task.isCompleted) : task
+      
+      );
     
-    setTasks(newTasks, isCompleted);
+    setTasks(newTasks);
   }
 
   return (
