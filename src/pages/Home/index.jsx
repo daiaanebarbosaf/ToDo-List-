@@ -2,6 +2,7 @@ import '../../styles/global.css';
 import styles from'./Home.module.css';
 import { useState } from "react";
 
+import clipBoard from '../../assets/clipboard.svg';
 
 import { Header } from '../../components/Header';
 import { Todo } from '../../components/Todo';
@@ -22,6 +23,16 @@ export function Home() {
     },
   ]);
 
+  const checkedTasksCounter = tasks.reduce((prevValue, currentTask) => {
+    if (currentTask.isChecked) {
+      return prevValue + 1
+    }
+
+    return prevValue
+  }, 0)
+
+  console.log(checkedTasksCounter)
+
   function addTask(text){
     const newTasks = [
       ...tasks,
@@ -31,8 +42,6 @@ export function Home() {
         isCompleted: false,
       },
     ];
-
-    console.log(text)
   
    setTasks(newTasks);
   }
@@ -47,15 +56,15 @@ export function Home() {
    setTasks(filteredTasks);
   }
 
-  function completeTask(id, isCompleted){
+  function completeTask(id){
     const newTasks = [...tasks];
       newTasks.map((task) => 
         task.id === id ? (task.isCompleted = !task.isCompleted) : task
-      
       );
-    
+        
     setTasks(newTasks);
   }
+
 
   return (
     <div className={styles.container}>
@@ -66,9 +75,33 @@ export function Home() {
           addTask={addTask}
         />
 
+        <div className={styles.sectionTasks}>
+            <div className={styles.statusTasks}>
+              <div className={styles.task}>
+                <p className={styles.pTasksCreated}>Tarefas criadas</p>
+                <span>{tasks.length}</span>
+              </div>
+
+              <div className={styles.task}>
+                <p className={styles.pCompletedTasks}>Concluídas</p>
+                <span>{checkedTasksCounter} de {tasks.length}</span>
+              </div>
+          </div>
+        </div>
+
         <div className={styles.line}></div>
 
         <div className={styles.listTasks}>
+          {
+            tasks.length === 0 ? 
+                    <div className={styles.sectionEmpty}>
+                    <img src={clipBoard} alt="Icone de uma prancheta" />
+                    <p>Você ainda não tem tarefas cadastradas </p>
+                    <span>Crie tarefas e organize seus itens a fazer</span>
+                  </div>
+            : ""
+          }
+
           {
             tasks.map((task) =>(
               <Todo
@@ -80,10 +113,7 @@ export function Home() {
             ))
           }
         </div>
-
       </main>
-      
-      
     </div>
   )
 }
