@@ -25,26 +25,26 @@ export function Form({addTask}){
     }
 
     return(
-        <div>
-        <form 
-            onSubmit={handleCreateNewTask}
-            className={styles.taskForm}
-        >
-          <Input 
-              name="task"
-              value={newTaskText}
-              placeholder="Adicione uma nova tarefa"
-              onChange={(e) => setNewTaskText(e.target.value)}
-              onInvalid={handleNewTaskInvalid}
-              required
-          />
-          <button 
-              type="sumit"
-          >
-              Criar
-              <TbCirclePlus />
-          </button>
-        </form>
+        <div className={styles.form}>
+            <form 
+                onSubmit={handleCreateNewTask}
+                className={styles.taskForm}
+            >
+            <Input 
+                name="task"
+                value={newTaskText}
+                placeholder="Adicione uma nova tarefa"
+                onChange={(e) => setNewTaskText(e.target.value)}
+                onInvalid={handleNewTaskInvalid}
+                required
+            />
+            <button 
+                type="sumit"
+            >
+                Criar
+                <TbCirclePlus />
+            </button>
+            </form>
         </div>
     )
 }
