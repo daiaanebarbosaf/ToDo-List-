@@ -12,15 +12,16 @@ export function Todo({task, deleteTask, completeTask, ...rest}){
   const [iconColor, setIconColor] = useState('#4EA8DE');
   const [currentIcon, setCurrentIcon] = useState(<GoCircle />);
 
+  const checkboxChecked = task.isCompleted ? styles['pTaskCompleted'] : styles['p'];
+
 
   function handleTaskCompleted(){
     const newIcon = currentIcon.type === GoCircle ? <img src={taskCompleted}/> : <GoCircle />; 
     setCurrentIcon(newIcon);  
-  }
 
-  const checkboxChecked = task.isCompleted
-  ? styles['pTaskCompleted']
-  : styles['p'];
+    completeTask(task.id); 
+
+  }
 
   console.log(task.isCompleted)
 
@@ -30,25 +31,27 @@ export function Todo({task, deleteTask, completeTask, ...rest}){
         >
           <header className={styles.itemsTask}>
             <button 
-              className={`${styles.buttonComplete} ${checkboxChecked}`}
-              onClick={() => completeTask(task.id)}
+              className={styles.buttonComplete}
+              onClick={handleTaskCompleted} 
             >
               {
                   currentIcon && React.cloneElement(currentIcon, 
                   {
                       size: 20,
                       color: iconColor,
-                      onClick: handleTaskCompleted,
                   })
               }
                 
               </button>
               <div 
-                className={`${styles.p} ${checkboxChecked}`}
                 
               >
               
-                <p>{task.text}</p>
+                <p
+                  className={`${styles.p} ${checkboxChecked}`}
+                >
+                  {task.text}
+                  </p>
               </div>
           </header>
             
