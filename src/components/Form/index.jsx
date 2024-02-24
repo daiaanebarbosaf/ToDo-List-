@@ -6,20 +6,18 @@ import { TbCirclePlus } from "react-icons/tb";
 
 import { useState } from "react";
 
-export function Form({onAddTask, ...rest}){
+export function Form({addTask}){
+
     const [newTaskText, setNewTaskText] = useState("");
 
-    function handleCreateNewTask(){
+    function handleCreateNewTask (e){
         
         event.preventDefault();
+        
+        if(!newTaskText) return;
 
-        onAddTask(newTaskText);
+        addTask(newTaskText);
         setNewTaskText('');
-    }
-
-    function handleNewTaskChange() {
-        event.target.setCustomValidity('');
-        setNewTaskText(event.target.value);
     }
 
     function handleNewTaskInvalid(){
@@ -36,7 +34,7 @@ export function Form({onAddTask, ...rest}){
               name="task"
               value={newTaskText}
               placeholder="Adicione uma nova tarefa"
-              onChange={handleNewTaskChange}
+              onChange={(e) => setNewTaskText(e.target.value)}
               onInvalid={handleNewTaskInvalid}
               required
           />
