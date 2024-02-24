@@ -24,7 +24,7 @@ export function Home() {
   ]);
 
   const checkedTasksCounter = tasks.reduce((prevValue, currentTask) => {
-    if (currentTask.isChecked) {
+    if (currentTask.isCompleted) {
       return prevValue + 1
     }
 
@@ -63,6 +63,8 @@ export function Home() {
       );
         
     setTasks(newTasks);
+
+    console.log(newTasks)
   }
 
 
