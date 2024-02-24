@@ -37,7 +37,22 @@ export function Home() {
    setTasks(newTasks);
   }
 
- 
+  function deleteTask(id){
+    
+   const newTasks = [...tasks];
+   const filteredTasks = newTasks.filter((task) =>
+    task.id !== id ? task : null
+   );
+
+   setTasks(filteredTasks);
+  }
+
+  function completeTask(id, isCompleted){
+    const newTasks = [...tasks];
+    newTasks.map((task) => task.id === id ? task.isCompleted = !isCompleted : task)
+    
+    setTasks(newTasks, isCompleted);
+  }
 
   return (
     <div className={styles.container}>
@@ -56,6 +71,8 @@ export function Home() {
               <Todo
                 key={task.id}
                 task={task}
+                deleteTask={deleteTask}
+                completeTask={completeTask}
               />
             ))
           }
