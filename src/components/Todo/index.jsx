@@ -20,10 +20,10 @@ export function Todo({task, deleteTask, completeTask, ...rest}){
     setCurrentIcon(newIcon);  
 
     completeTask(task.id); 
+    
 
   }
 
-  console.log(task.isCompleted)
 
     return(
         <div 
