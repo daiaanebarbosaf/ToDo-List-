@@ -10,18 +10,7 @@ import { Form } from '../../components/Form';
 
 
 export function Home() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text:"Duolingo",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      text:"Dançar",
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   const checkedTasksCounter = tasks.reduce((prevValue, currentTask) => {
     if (currentTask.isCompleted) {
@@ -63,10 +52,9 @@ export function Home() {
       );
         
     setTasks(newTasks);
-
-    console.log(newTasks)
+    
   }
-
+  
 
   return (
     <div className={styles.container}>
@@ -103,8 +91,9 @@ export function Home() {
                   </div>
             : ""
           }
-
+          
           {
+
             tasks.map((task) =>(
               <Todo
                 key={task.id}
