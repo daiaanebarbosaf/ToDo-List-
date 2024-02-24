@@ -45,6 +45,7 @@
 
 .p {
     color: var(--gray-100);
+    text-decoration: none;
     
 }
 
