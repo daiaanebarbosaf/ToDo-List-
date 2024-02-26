@@ -169,6 +169,7 @@ section {
 
     .wrapper {
         width: 100%;
+        padding-inline: 5rem;
     }
  
     .taskForm {
@@ -190,5 +191,15 @@ section {
         flex-direction: column;
         gap: 1rem;
     }
+
+    .sectionEmpty {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        margin-bottom: 2rem;
+    }
+
+    
     
 }

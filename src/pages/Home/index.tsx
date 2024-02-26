@@ -89,13 +89,12 @@ export function Home() {
           {
             tasks.length === 0 ? 
                     <div className={styles.sectionEmpty}>
-                    <img src={clipBoard} alt="Icone de uma prancheta" />
-                    <p>Você ainda não tem tarefas cadastradas </p>
-                    <span>Crie tarefas e organize seus itens a fazer</span>
+                      <img src={clipBoard} alt="Icone de uma prancheta" />
+                      <p>Você ainda não tem tarefas cadastradas </p>
+                      <span>Crie tarefas e organize seus itens a fazer</span>
                   </div>
             : ""
           }
-          
           {
 
             tasks.map((task) =>(
