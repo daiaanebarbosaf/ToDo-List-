@@ -45,7 +45,7 @@ A aplicação apresenta as seguintes funcionalidades:
 
 Este projeto está sob a licença MIT.
 
----
+----
 
 
 <div style="display: flex;">
